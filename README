@@ -1,0 +1,81 @@
+madplay
+-------------------------------------------
+madplay is a command-line MPEG audio decoder and player based on the 
+MAD library (libmad).
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  libid3tag-0.15.1b-2
+  libintl8-0.15-1
+  libmad-0.15.1b-2
+
+Build requirements:
+(besides corresponding devel packages)
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  automake1.8-1.8.5-3
+  binutils-20060817-1
+  cygport-0.2.9-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  sed-4.1.5-2
+
+Canonical homepage:
+  http://www.underbit.com/products/mad/
+
+Canonical download:
+  http://downloads.sourceforge.net/mad/
+
+-------------------------------------------
+
+Build instructions:
+  unpack madplay-0.15.2b-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./madplay-0.15.2b-X.cygport all
+
+This will create:
+  /usr/src/madplay-0.15.2b-X-src.tar.bz2
+  /usr/src/madplay-0.15.2b-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/abxtest
+  /usr/bin/madplay.exe
+  /usr/share/doc/Cygwin/madplay-0.15.2b.README
+  /usr/share/doc/madplay-0.15.2b/ABOUT-NLS
+  /usr/share/doc/madplay-0.15.2b/COPYING
+  /usr/share/doc/madplay-0.15.2b/COPYRIGHT
+  /usr/share/doc/madplay-0.15.2b/CREDITS
+  /usr/share/doc/madplay-0.15.2b/Changes
+  /usr/share/doc/madplay-0.15.2b/INSTALL
+  /usr/share/doc/madplay-0.15.2b/README
+  /usr/share/doc/madplay-0.15.2b/TODO
+  /usr/share/locale/en/LC_MESSAGES/madplay.mo
+  /usr/share/locale/es/LC_MESSAGES/madplay.mo
+  /usr/share/locale/fr/LC_MESSAGES/madplay.mo
+  /usr/share/locale/hr/LC_MESSAGES/madplay.mo
+  /usr/share/locale/no/LC_MESSAGES/madplay.mo
+  /usr/share/man/man1/abxtest.1.gz
+  /usr/share/man/man1/madplay.1.gz
+
+------------------
+
+Port Notes:
+
+----- version 0.15.2b-2 -----
+Rebuilt with cygport for updated dependencies.
+
+----- version 0.15.2b-1 -----
+Initial release for Cygwin.
+TTY control doesn't appear to be working properly, which is already a 
+known problem upstream.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

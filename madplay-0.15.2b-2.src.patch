@@ -1,0 +1,43 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/madplay-0.15.2b/Makefile.am src/madplay-0.15.2b/Makefile.am
+--- origsrc/madplay-0.15.2b/Makefile.am	2004-02-23 15:34:53.000000000 -0600
++++ src/madplay-0.15.2b/Makefile.am	2007-02-19 13:32:51.302680100 -0600
+@@ -75,7 +75,7 @@
+ madtag_LDADD =		$(ldadd) $(ldadd_libid3tag)
+ 
+ localedir =		$(datadir)/locale
+-INCLUDES =		-Iintl -DLOCALEDIR=\"$(localedir)\"
++INCLUDES =		-DLOCALEDIR=\"$(localedir)\"
+ 
+ depend_audio =		@depend_audio@
+ ldadd_audio =		$(depend_audio) @ldadd_audio@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x mdate-sh -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make origsrc/madplay-0.15.2b/configure.ac src/madplay-0.15.2b/configure.ac
+--- origsrc/madplay-0.15.2b/configure.ac	2004-02-23 15:34:53.000000000 -0600
++++ src/madplay-0.15.2b/configure.ac	2007-02-19 13:31:48.030294900 -0600
+@@ -307,13 +307,6 @@
+ 
+ if test "$audio" = unknown
+ then
+-    AC_EGREP_CPP(waveOutOpen, [
+-# include <mmsystem.h>
+-], [audio="win32"; ldadd_audio="$ldadd_audio -lwinmm"])
+-fi
+-
+-if test "$audio" = unknown
+-then
+     AC_EGREP_CPP(yes, [
+ # include <sys/soundcard.h>
+ # if defined(OPEN_SOUND_SYSTEM) || defined(UNIX_SOUND_SYSTEM) ||  \
+@@ -336,6 +329,13 @@
+ 
+ if test "$audio" = unknown
+ then
++    AC_EGREP_CPP(waveOutOpen, [
++# include <mmsystem.h>
++], [audio="win32"; ldadd_audio="$ldadd_audio -lwinmm"])
++fi
++
++if test "$audio" = unknown
++then
+     AC_EGREP_CPP(audio_info_t, [
+ # include <sys/audioio.h>
+ ], [audio="sun"])

@@ -1,0 +1,5 @@
+category: Audio
+requires: cygwin libid3tag libintl8 libmad
+sdesc: "MPEG audio console player"
+ldesc: "madplay is a command-line MPEG audio decoder and player based on 
+the MAD library (libmad)."

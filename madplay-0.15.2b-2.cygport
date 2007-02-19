@@ -1,0 +1,6 @@
+DESCRIPTION="MP3 audio player"
+HOMEPAGE="http://www.underbit.com/products/mad/"
+SRC_URI="mirror://sourceforge/mad/${P}.tar.gz"
+#		 mirror://sourceforge/mad/${P}.tar.gz.sign"
+
+CYGCONF_ARGS='--without-esd'
