@@ -1,8 +1,6 @@
 DESCRIPTION="MP3 audio player"
 HOMEPAGE="http://www.underbit.com/products/mad/"
 SRC_URI="mirror://sourceforge/mad/${P}.tar.gz"
-#		 mirror://sourceforge/mad/${P}.tar.gz.sign"
 
-DIFF_EXCLUDES="intl m4"
-
-CYGCONF_ARGS='--without-esd'
+# libtool 2.2+ requires at least 1.9
+WANT_AUTOMAKE=1.9
