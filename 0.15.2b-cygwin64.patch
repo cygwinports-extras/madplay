@@ -1,0 +1,40 @@
+--- origsrc/madplay-0.15.2b/audio_win32.c	2004-01-23 03:41:31.000000000 -0600
++++ src/madplay-0.15.2b/audio_win32.c	2013-09-17 16:42:27.471534900 -0500
+@@ -95,8 +95,8 @@ int init(struct audio_init *init)
+ }
+ 
+ static
+-void CALLBACK callback(HWAVEOUT handle, UINT message, DWORD data,
+-		       DWORD param1, DWORD param2)
++void CALLBACK callback(HWAVEOUT handle, UINT message, DWORD_PTR data,
++		       DWORD_PTR param1, DWORD_PTR param2)
+ {
+   WAVEHDR *header;
+   struct buffer *buffer;
+@@ -122,7 +122,7 @@ void set_format(WAVEFORMATEX *format, un
+ 		unsigned int speed, unsigned int bits)
+ {
+   unsigned int block_al;
+-  unsigned long bytes_ps;
++  ULONG bytes_ps;
+ 
+   block_al = channels * bits / 8;
+   bytes_ps = speed * block_al;
+@@ -146,7 +146,7 @@ int open_dev(HWAVEOUT *handle, unsigned
+   set_format(&format, channels, speed, depth);
+ 
+   error = waveOutOpen(handle, WAVE_MAPPER, &format,
+-		      (DWORD) callback, 0, CALLBACK_FUNCTION);
++		      (DWORD_PTR) callback, 0, CALLBACK_FUNCTION);
+   if (error != MMSYSERR_NOERROR) {
+     audio_error = error_text(error);
+     return -1;
+@@ -206,7 +206,7 @@ int write_dev(HWAVEOUT handle, struct bu
+ 
+   buffer->wave_header.lpData         = buffer->pcm_data;
+   buffer->wave_header.dwBufferLength = buffer->pcm_length;
+-  buffer->wave_header.dwUser         = (DWORD) buffer;
++  buffer->wave_header.dwUser         = (DWORD_PTR) buffer;
+   buffer->wave_header.dwFlags        = 0;
+ 
+   error = waveOutPrepareHeader(handle, &buffer->wave_header,
