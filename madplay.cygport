@@ -1,10 +1,13 @@
 NAME="madplay"
 VERSION=0.15.2b
-RELEASE=3
+RELEASE=4
 CATEGORY="Audio"
 SUMMARY="MPEG audio console player"
 DESCRIPTION="madplay is a command-line MPEG audio decoder and player based on
 the MAD library (libmad)."
 HOMEPAGE="http://www.underbit.com/products/mad/"
 SRC_URI="mirror://sourceforge/mad/madplay-${VERSION}.tar.gz"
-PATCH_URI="0.15.2b-cygwin64.patch"
+PATCH_URI="
+	0.15.2b-cygwin64.patch
+	0.15.2b-mno-cygwin.patch
+"

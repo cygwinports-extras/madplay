@@ -1,0 +1,22 @@
+--- origsrc/madplay-0.15.2b/configure.ac	2004-02-23 15:34:53.000000000 -0600
++++ src/madplay-0.15.2b/configure.ac	2016-11-12 22:15:32.446191400 -0600
+@@ -45,19 +45,6 @@ esac
+ 
+ AC_PROG_CC
+ 
+-if test "$GCC" = yes
+-then
+-    case "$host" in
+-	*-*-mingw*)
+-	    case "$build" in
+-		*-*-cygwin*)
+-		    CPPFLAGS="$CPPFLAGS -mno-cygwin"
+-		    LDFLAGS="$LDFLAGS -mno-cygwin"
+-		    ;;
+-	    esac
+-    esac
+-fi
+-
+ dnl Support for libtool.
+ 
+ AC_DISABLE_SHARED
